@@ -20,7 +20,7 @@
                         <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                             data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                             aria-expanded="false">
-                            <img src="" alt="user-image" class="rounded-circle">
+
                             <span class="pro-user-name ms-1">
                                 {{\Illuminate\Support\Facades\Auth::user()->username}} <i class="mdi mdi-chevron-down"></i>
                             </span>
@@ -59,13 +59,12 @@
                 <!-- LOGO -->
                 <div class="logo-box">
 
+                    <h1 style="color: white" class="ml-1">6 AM</h1>
                     <a href="{{route('home')}}" class="logo logo-light text-center">
-                        <span class="logo-sm">
-                            <img src="{{asset('public/logofiles/')}}" alt="" height="22">
-                        </span>
-                        <span class="logo-lg">
-                            <img src="{{asset('public/logofiles/')}}" alt="" height="60">
-                        </span>
+
+
+
+
                     </a>
 
 

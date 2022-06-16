@@ -7,7 +7,7 @@
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{url('public/logofiles/'.@$f->file)}}">
+        <link rel="shortcut icon" href="">
 
         <!-- Plugins css -->
         <link href="{{url('/public/assets/libs/flatpickr/flatpickr.min.css')}}" rel="stylesheet" type="text/css" />

@@ -3,7 +3,7 @@
      <div class="h-100" data-simplebar>
 
          <!-- User box -->
-         <div class="user-box text-center">
+         {{-- <div class="user-box text-center">
              <img src="{{url('/public/assets/images/users/user-1.jpg')}}" alt="user-img" title="Mat Helme"
                  class="rounded-circle avatar-md">
              <div class="dropdown">
@@ -38,7 +38,52 @@
                  </div>
              </div>
              <p class="text-muted">Admin Head</p>
-         </div>
+         </div> --}}
+
+         <?php
+session_start();
+  $permissions = \App\Models\User::with('permission')->find(Auth::user()->user_id)->permission->pluck('permissionHeader.header_name')->toArray();
+
+  $_SESSION["permissions"] = $permissions;
+
+        Gate::define('product_menu', function () {
+
+            if (in_array('product_menu', $_SESSION["permissions"])) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+
+
+
+        Gate::define('import_product_menu', function ($user) {
+
+            if (in_array('import_product_menu',  $_SESSION["permissions"] )) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        Gate::define('userpermission_menu', function ($user) {
+
+            if (in_array('userpermission_menu',  $_SESSION["permissions"] )) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+
+
+
+
+
+
+?>
+
 
          <!--- Sidemenu -->
          <div id="sidebar-menu">
@@ -50,32 +95,37 @@
                  <li>
                      <a href="{{route('home')}}" >
                          <i data-feather="airplay"></i>
-
                          <span> Dashboard </span>
                      </a>
-
                  </li>
 
+                 @can('product_menu')
+                 <li>
+                    <a href="{{route('products.index')}}" >
+                        <i data-feather="airplay"></i>
+                        <span> Products </span>
+                    </a>
+                </li>
+                @endcan
+
+                @can('import_product_menu')
+                <li>
+                    <a href="{{route('products.import')}}" >
+                        <i data-feather="airplay"></i>
+                        <span> import products </span>
+                    </a>
+                </li>
+                @endcan
 
 
-{{--                 <li>--}}
-{{--                     <a href="#sidebarEcommerce" data-bs-toggle="collapse">--}}
-{{--                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>--}}
-{{--                         <span> Reports </span>--}}
-{{--                         <span class="menu-arrow"></span>--}}
-{{--                     </a>--}}
-{{--                     <div class="collapse" id="sidebarEcommerce">--}}
-{{--                         <ul class="nav-second-level">--}}
-{{--                             <li>--}}
-{{--                                 <a href="{{route('reports.leads')}}">Leads</a>--}}
-{{--                             </li>--}}
-{{--                             <li>--}}
-{{--                                 <a href="{{route('reports.followup')}}">Followup</a>--}}
-{{--                             </li>--}}
-
-{{--                         </ul>--}}
-{{--                     </div>--}}
-{{--                 </li>--}}
+                @can('userpermission_menu')
+                <li>
+                    <a href="{{route('users.index')}}" >
+                        <i data-feather="airplay"></i>
+                        <span>User Role Permissions </span>
+                    </a>
+                </li>
+                @endcan
 
 
              </ul>

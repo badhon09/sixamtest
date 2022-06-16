@@ -60,17 +60,9 @@
 
                             <div class="text-center w-75 m-auto">
                                 <div class="auth-logo">
-                                    <a href="index.html" class="logo logo-dark text-center">
-                                        <span class="logo-lg">
-                                            <img src="{{asset('public/logofiles/')}}" alt="" height="22">
-                                        </span>
-                                    </a>
+                                   <h4></h4>
 
-                                    <a href="index.html" class="logo logo-light text-center">
-                                        <span class="logo-lg">
-                                            <img src="{{asset('public/logofiles/')}}" alt="" height="22">
-                                        </span>
-                                    </a>
+                                    
                                 </div>
                                 <p class="text-muted mb-4 mt-3">Enter your email/username/phone  and password </p>
                             </div>

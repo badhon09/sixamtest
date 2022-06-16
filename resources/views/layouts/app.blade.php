@@ -38,8 +38,7 @@
                         <div class="col-md-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> &copy; Developed by <a href="https://techcloudltd.com" target="_blank">Tech
-                                Cloud Ltd.</a>
+                            </script> &copy; Developed by <b>Badhon Kumer Ghosh</b>
                         </div>
                         <div class="col-md-6">
 
@@ -63,6 +62,7 @@
     <div class="rightbar-overlay"></div>
 
     @include('layouts.includes.footer')
+    @stack('custom-scripts')
 
 </body>
 

@@ -37,8 +37,10 @@
         <script src="{{url('/public/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
         <script src="{{url('/public/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
 
+
+
         <!-- Init js-->
-{{--        <script src="{{url('/public/assets/js/pages/form-advanced.init.js')}}"></script>--}}
+       {{-- <script src="{{url('/public/assets/js/pages/form-advanced.init.js')}}"></script> --}}
 
         <!-- Dashboar 1 init js-->
         <script src="{{url('/public/assets/js/pages/dashboard-1.init.js')}}"></script>
